@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class MineSweeper {
+    public static void main(String[] args){
+        System.out.println("How many slots are you simulating: ");
+        Scanner arraySize = new Scanner(System.in);
+        int enteredSize = arraySize.nextInt();
+
+        int[] slots = new int[enteredSize];
+        for (int i : slots){
+            slots[i] = 0;
+        }
+
+        Random random = new Random;
+        slots[random.nextInt(enteredSize)] = 1;
+
+        int guess = 1;
+        int lives = 3;
+        boolean win = true;
+        while (lives >= 0 && !win){
+            System.out.print("Where's the mine? ");
+
+        }
+
+    }
+}
