@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class MineSweeper {
     public static void main(String[] args){
-        System.out.println("How many slots are you simulating: ");
+        System.out.print("How many slots are you simulating: ");
         Scanner arraySize = new Scanner(System.in);
         int enteredSize = arraySize.nextInt();
 
@@ -12,16 +12,31 @@ public class MineSweeper {
             slots[i] = 0;
         }
 
-        Random random = new Random;
-        slots[random.nextInt(enteredSize)] = 1;
+        Random random = new Random();
+        int r = random.nextInt(enteredSize);
+        slots[r] = 1;
 
-        int guess = 1;
+        int guess;
         int lives = 3;
-        boolean win = true;
-        while (lives >= 0 && !win){
-            System.out.print("Where's the mine? ");
+        boolean win = false;
+        Scanner userGuess = new Scanner(System.in);
+        while (lives > 0 && !win){
+            System.out.print("\nWhere's the mine? ");
+            guess = userGuess.nextInt();
+            System.out.println();
 
+            if (guess == r){
+                win = true;
+            }
+            else{
+                lives--;
+            }
         }
-
+        if (win){
+            System.out.println("Winner!");
+        }
+        else{
+            System.out.println("Out of lives!");
+        }
     }
 }
